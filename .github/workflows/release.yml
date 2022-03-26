@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build swift binary
-        run: swift build -c release
       - name: Zip release build
         run: make archive
       - name: Get release

@@ -1,6 +1,7 @@
 SWIFT_LINT := swiftlint
 XCODE_BUILD := xcodebuild
 SWIFT := swift
+ZIP := zip
 
 SRC := $(find Sources -name "*.swift")
 
@@ -22,8 +23,8 @@ build: .build/debug/unlocker
 
 .PHONY: archive
 archive: clean
-	$(SWIFT) build -c release 
-	zip $(BUILD_RELEASE_DIR)/unlocker.zip $(BUILD_RELEASE_DIR)/unlocker
+	$(SWIFT) build -c release
+	$(ZIP) -q -j $(BUILD_RELEASE_DIR)/unlocker.zip $(BUILD_RELEASE_DIR)/unlocker
 
 .PHONY: clean
 clean:

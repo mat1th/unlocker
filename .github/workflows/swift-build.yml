@@ -14,7 +14,7 @@ on:
       - '**/*.swift'
       - '.github/workflows/*.yml'
 jobs:
-  swiftLint:
+  swift_lint:
     runs-on: macos-latest
     steps:
       - name: Checkout
