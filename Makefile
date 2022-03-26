@@ -1,11 +1,12 @@
 SWIFT_LINT := swiftlint
 XCODE_BUILD := xcodebuild
-
-PROJECT_NAME := "Unlocker"
+SWIFT := swift
 
 SRC := $(find Sources -name "*.swift")
 
 RELEASEDIR := Release
+BUILD_DIR := .build
+BUILD_RELEASE_DIR := .build/release
 
 .DEFAULT_GOAL := build
 
@@ -17,13 +18,15 @@ lint:
 build: .build/debug/unlocker
 
 .build/debug/unlocker: $(SRC)
-	swift build
+	$(SWIFT) build
 
 .PHONY: archive
-archive:
+archive: clean
+	$(SWIFT) build -c release 
+	zip $(BUILD_RELEASE_DIR)/unlocker.zip $(BUILD_RELEASE_DIR)/unlocker
 
 .PHONY: clean
 clean:
-	@rm -rf .build
-	@rm -rf DerivedData
+	@rm -rf $(BUILD_DIR)
 	@rm -rf $(RELEASEDIR)
+	@rm -rf DerivedData

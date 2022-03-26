@@ -17,7 +17,8 @@ jobs:
   swiftLint:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Run swiftlint
         run: swiftlint lint --reporter github-actions-logging
 
