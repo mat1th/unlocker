@@ -7,7 +7,6 @@ protocol AccessablityPermissionIsAllowedUseCaseProtocol {
 }
 
 struct AccessablityPermissionIsAllowedUseCase: AccessablityPermissionIsAllowedUseCaseProtocol {
-
     func execute() -> Bool {
         AXIsProcessTrusted()
     }

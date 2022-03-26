@@ -6,7 +6,6 @@ protocol StartSceenSaverUseCaseProtocol {
 }
 
 struct StartSceenSaverUseCase: StartSceenSaverUseCaseProtocol {
-
     private static let displayPath = "IOService:/IOResources/IODisplayWrangler"
     private static let displayIdleFunction = "IORequestIdle"
 

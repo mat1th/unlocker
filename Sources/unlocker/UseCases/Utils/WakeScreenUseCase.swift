@@ -6,7 +6,6 @@ protocol WakeScreenUseCaseProtocol {
 }
 
 struct WakeScreenUseCase: WakeScreenUseCaseProtocol {
-
     func execute() {
         var assertionID: IOPMAssertionID = 0
         _ = IOPMAssertionDeclareUserActivity("" as CFString, kIOPMUserActiveLocal, &assertionID)

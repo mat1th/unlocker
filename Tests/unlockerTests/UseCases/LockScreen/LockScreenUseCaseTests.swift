@@ -1,7 +1,6 @@
 @testable import unlocker
 import XCTest
 
-
 class LockScreenUseCaseTests: XCTestCase {
     private var sut: LockScreenUseCase!
     private var executeFramworkUseCaseSpy: ExecuteFramworkUseCaseSpy!

@@ -5,7 +5,6 @@ protocol LockScreenIsActiveUseCaseProtocol {
 }
 
 struct LockScreenIsActiveUseCase: LockScreenIsActiveUseCaseProtocol {
-
     private static let lockedKey = "CGSSessionScreenIsLocked"
 
     func execute() -> Bool {

@@ -2,7 +2,6 @@ import Foundation
 @testable import unlocker
 
 class UnlockScreenUseCaseSpy: UnlockScreenUseCaseProtocol {
-
     var executeCalledTimes = 0
     var executeCalled: Bool { executeCalledTimes > 0 }
 

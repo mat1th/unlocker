@@ -2,7 +2,6 @@ import Foundation
 @testable import unlocker
 
 class CGEventProtocolSpy: CGEventProtocol {
-
     var keyboardSetUnicodeStringResult: (Int?, UnsafePointer<UniChar>?)?
     var keyboardSetUnicodeStringCalledTimes = 0
     var keyboardSetUnicodeStringCalled: Bool { keyboardSetUnicodeStringCalledTimes > 1 }

@@ -5,7 +5,6 @@ protocol LockScreenUseCaseProtocol {
 }
 
 struct LockScreenUseCase {
-
     private static let loginFrameworkPath = "/System/Library/PrivateFrameworks/login.framework/Versions/Current/login"
     private static let lockScreenFunction = "SACLockScreenImmediate"
 

@@ -4,7 +4,7 @@ import XCTest
 class UnlockScreenUseCaseTest: XCTestCase {
     private var sut: UnlockScreenUseCase!
     private var postKeyEventUseCaseSpy: PostKeyEventUseCaseSpy!
-    private lazy var cgEventProvider: (CGEventSource?, CGKeyCode, Bool) -> CGEventProtocol? = {_,_,_ in
+    private lazy var cgEventProvider: (CGEventSource?, CGKeyCode, Bool) -> CGEventProtocol? = {_, _, _ in
         self.cgEventProtocolSpy
     }
     private var cgEventProtocolSpy: CGEventProtocolSpy!

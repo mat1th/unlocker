@@ -5,7 +5,6 @@ protocol UnlockScreenUseCaseProtocol {
 }
 
 struct UnlockScreenUseCase: UnlockScreenUseCaseProtocol {
-
     enum UnlockScreenError: Error {
         case passwordNotValid
     }

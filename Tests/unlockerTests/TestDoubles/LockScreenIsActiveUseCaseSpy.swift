@@ -2,7 +2,6 @@ import Foundation
 @testable import unlocker
 
 class LockScreenIsActiveUseCaseSpy: LockScreenIsActiveUseCaseProtocol {
-
     var result = false
 
     var executeCalledTimes = 0

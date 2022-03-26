@@ -78,7 +78,7 @@ class UnlockCommandTests: XCTestCase {
         XCTAssertEqual(unlockScreenUseCaseSpy.executeCalledTimes, 1)
     }
 
-    func makeSut(options: UnlockCommand.UnlockCommandOptions) {
+    private func makeSut(options: UnlockCommand.UnlockCommandOptions) {
         sut = UnlockCommand(
             options: options,
             lockScreenIsActive: lockScreenIsActiveUseCaseSpy,
