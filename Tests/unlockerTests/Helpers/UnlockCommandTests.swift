@@ -33,7 +33,7 @@ class UnlockCommandTests: XCTestCase {
     }
 
     func testCheckForAccessablity() throws {
-        makeSut(options: .init(password: "dummy", unlockCheck: false))
+        makeSut(options: .init(password: "dummy"))
 
         accessablityPermissionIsAllowedSpy.result = true
 
@@ -45,7 +45,7 @@ class UnlockCommandTests: XCTestCase {
     }
 
     func testOnlyWakeScreenWhenNeeded() throws {
-        makeSut(options: .init(password: "dummy", unlockCheck: false))
+        makeSut(options: .init(password: "dummy"))
 
         lockScreenIsActiveUseCaseSpy.result = false
 
@@ -63,7 +63,7 @@ class UnlockCommandTests: XCTestCase {
     }
 
     func testStopsScreenSaverBeforeEnteringPasscode() throws {
-        makeSut(options: .init(password: "dummy", unlockCheck: false))
+        makeSut(options: .init(password: "dummy"))
 
         try sut.run()
 
@@ -71,7 +71,7 @@ class UnlockCommandTests: XCTestCase {
     }
 
     func testEntersPasswordToUnlockScreen() throws {
-        makeSut(options: .init(password: "dummy", unlockCheck: false))
+        makeSut(options: .init(password: "dummy"))
 
         try sut.run()
 

@@ -3,7 +3,6 @@ import Foundation
 struct UnlockCommand {
     struct UnlockCommandOptions: Equatable {
         let password: String
-        let unlockCheck: Bool
     }
 
     enum UnlockError: Error {

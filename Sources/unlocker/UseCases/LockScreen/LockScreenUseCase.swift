@@ -18,7 +18,7 @@ struct LockScreenUseCase {
     func execute() {
         executeFramwork.execute(
             frameworkPath: Self.loginFrameworkPath,
-            function: lockScreenFunction
+            function: Self.lockScreenFunction
         )
     }
 }

@@ -6,18 +6,10 @@ struct Unlock: ParsableCommand {
         abstract: "Unlock your machine (will ask for your password to unlock)"
     )
 
-    @Option(
-        name: .shortAndLong,
-        help: "Check if machine is correctly unlocked.",
-        completion: CompletionKind.list(["true", "false"])
-    )
-    var unlockCheck = true
-
     func run() throws {
         let password = try askPassword()
         let options = UnlockCommand.UnlockCommandOptions(
-            password: password,
-            unlockCheck: unlockCheck
+            password: password
         )
 
         do {

@@ -13,10 +13,15 @@ struct UnlockScreenUseCase: UnlockScreenUseCaseProtocol {
     private let amountCaracters = 20
 
     private let postKeyEvent: PostKeyEventUseCaseProtocol
+    private let cgEventProvider: (CGEventSource?, CGKeyCode, Bool) -> CGEventProtocol?
 
     public init(
-        postKeyEvent: PostKeyEventUseCaseProtocol = PostKeyEventUseCase()
+        postKeyEvent: PostKeyEventUseCaseProtocol = PostKeyEventUseCase(),
+        cgEventProvider: @escaping (CGEventSource?, CGKeyCode, Bool) -> CGEventProtocol? = {
+            CGEvent(keyboardEventSource: $0, virtualKey: $1, keyDown: $2)
+        }
     ) {
+        self.cgEventProvider = cgEventProvider
         self.postKeyEvent = postKeyEvent
     }
 
@@ -31,7 +36,7 @@ struct UnlockScreenUseCase: UnlockScreenUseCaseProtocol {
         var strIndex = password.utf16.startIndex
 
         for offset in stride(from: 0, to: uniCharCount, by: amountCaracters) {
-            let pressEvent = CGEvent(keyboardEventSource: src, virtualKey: KeyCode.space.rawValue, keyDown: true)
+            let pressEvent = cgEventProvider(src, KeyCode.space.rawValue, true)
             let len = offset + amountCaracters < uniCharCount ? amountCaracters : uniCharCount - offset
             let buffer = UnsafeMutablePointer<UniChar>.allocate(capacity: len)
 
@@ -41,7 +46,7 @@ struct UnlockScreenUseCase: UnlockScreenUseCaseProtocol {
             }
             pressEvent?.keyboardSetUnicodeString(stringLength: len, unicodeString: buffer)
             pressEvent?.post(tap: .cghidEventTap)
-            CGEvent(keyboardEventSource: src, virtualKey: KeyCode.space.rawValue, keyDown: false)?.post(tap: .cghidEventTap)
+            cgEventProvider(src, KeyCode.space.rawValue, false)?.post(tap: .cghidEventTap)
         }
 
         postKeyEvent.execute(keyCode: KeyCode.enter.rawValue)
