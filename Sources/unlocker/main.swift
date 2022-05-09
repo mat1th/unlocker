@@ -11,8 +11,8 @@ struct Main: ParsableCommand {
             abstract: "Control locking and unlocking of your device using the commandline.",
             version: "0.1.0",
             subcommands: [
-                Unlock.self,
-                Lock.self
+                UnlockCommand.self,
+                LockCommand.self
             ]
         )
     }
