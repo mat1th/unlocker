@@ -29,6 +29,10 @@ jobs:
       - name: Resolve
         run: swift package resolve
       - name: Build Package
+        env:
+          SWIFTPM_ENABLE_PLUGINS: 1
         run: swift build -v
       - name: Run tests
+        env:
+          SWIFTPM_ENABLE_PLUGINS: 1
         run: set -o pipefail && swift test 2>&1 | xcpretty

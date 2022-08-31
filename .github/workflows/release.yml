@@ -11,6 +11,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Zip release build
+        env:
+          SWIFTPM_ENABLE_PLUGINS: 1
         run: make archive
       - name: Get release
         id: get_release
