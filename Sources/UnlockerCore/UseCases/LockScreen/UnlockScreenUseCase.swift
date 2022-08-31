@@ -1,3 +1,4 @@
+import CoreGraphics
 import Foundation
 
 public protocol UnlockScreenUseCaseProtocol {
@@ -15,7 +16,10 @@ public struct UnlockScreenUseCase: UnlockScreenUseCaseProtocol {
     private let cgEventProvider: (CGEventSource?, CGKeyCode, Bool) -> CGEventProtocol?
 
     public init() {
-        self.init()
+        self.init(
+            postKeyEvent: PostKeyEventUseCase(),
+            cgEventProvider: { CGEvent(keyboardEventSource: $0, virtualKey: $1, keyDown: $2) }
+        )
     }
 
     init(

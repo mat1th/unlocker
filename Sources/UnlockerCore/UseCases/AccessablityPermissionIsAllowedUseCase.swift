@@ -7,11 +7,10 @@ public protocol AccessablityPermissionIsAllowedUseCaseProtocol {
 }
 
 public struct AccessablityPermissionIsAllowedUseCase: AccessablityPermissionIsAllowedUseCaseProtocol {
-
     private let postKeyEvent: PostKeyEventUseCaseProtocol
 
     public init() {
-        self.init()
+        self.init(postKeyEvent: PostKeyEventUseCase())
     }
 
     private init(postKeyEvent: PostKeyEventUseCaseProtocol = PostKeyEventUseCase()) {

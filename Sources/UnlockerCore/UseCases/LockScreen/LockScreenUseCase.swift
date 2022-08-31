@@ -11,7 +11,7 @@ public struct LockScreenUseCase {
     private let executeFramwork: ExecuteFramworkUseCaseProtocol
 
     public init() {
-        self.init()
+        self.init(executeFramwork: ExecuteFramworkUseCase())
     }
 
     init(executeFramwork: ExecuteFramworkUseCaseProtocol = ExecuteFramworkUseCase()) {

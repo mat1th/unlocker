@@ -8,7 +8,7 @@ public struct StopScreenSaverUseCase: StopScreenSaverUseCaseProtocol {
     private let postKeyEvent: PostKeyEventUseCaseProtocol
 
     public init() {
-        self.init()
+        self.init(postKeyEvent: PostKeyEventUseCase())
     }
 
     init(postKeyEvent: PostKeyEventUseCaseProtocol = PostKeyEventUseCase()) {

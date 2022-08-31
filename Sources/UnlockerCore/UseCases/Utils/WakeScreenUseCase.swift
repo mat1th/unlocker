@@ -6,7 +6,6 @@ public protocol WakeScreenUseCaseProtocol {
 }
 
 public struct WakeScreenUseCase: WakeScreenUseCaseProtocol {
-
     public init() {
     }
 

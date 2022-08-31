@@ -1,3 +1,4 @@
+import CoreGraphics
 @testable import UnlockerCore
 import XCTest
 
