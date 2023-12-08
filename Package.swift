@@ -1,16 +1,18 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
     name: "Unlocker",
-    platforms: [.macOS(.v10_13)],
+    platforms: [
+        .macOS(.v10_13)
+    ],
     products: [
         .executable(name: "unlocker", targets: ["unlocker"]),
         .library(name: "UnlockerCore", targets: ["UnlockerCore"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.1.4")
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.3.0")
     ],
     targets: [
         .executableTarget(
