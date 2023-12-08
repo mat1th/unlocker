@@ -18,7 +18,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Run swiftlint
         run: swiftlint lint --reporter github-actions-logging
 
@@ -29,8 +29,8 @@ jobs:
       matrix:
         xcode: ["14.2"]
     steps:
-      - uses: actions/checkout@v2
-      - name: Set Xcode
+      - uses: actions/checkout@v4
+      - name: Set correct Xcode version
         run: |
           echo "Available Xcode versions:"
           ls /Applications | grep Xcode
@@ -39,7 +39,7 @@ jobs:
           xcodebuild -version
           swift --version
           swift package --version
-      - name: Resolve
+      - name: Resolve swift packages
         run: swift package resolve
       - name: Build Package
         env:
