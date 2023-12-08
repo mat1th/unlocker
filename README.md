@@ -1,5 +1,8 @@
 # Unlocker
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fmat1th%2Funlocker%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/mat1th/unlocker)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fmat1th%2Funlocker%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/mat1th/unlocker)
+
 A tool to unlock your macbook lock screen from the command line. This is mostly useful when connecting remotely to a
 mac over `vnc`. Apple does not allow pasting a passport on the lock screen when using `vnc`. This tools will give you 
 the possibility to fill in the password to this tool, and unlock your mac with it.
