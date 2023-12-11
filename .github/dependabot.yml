@@ -1,0 +1,27 @@
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    commit-message:
+      prefix: "GitHub Actions:"
+    schedule:
+      interval: "weekly"
+      time: "02:00"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "swift"
+    directory: "/"
+    allow:
+      - dependency-type: all
+    commit-message:
+      prefix: "Swift:"
+    schedule:
+      interval: "weekly"
+      time: "02:00"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
