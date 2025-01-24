@@ -3,31 +3,34 @@ name: Swift
 on:
   push:
     branches:
-      - '**'
+      - "**"
     tags-ignore:
-      - '**'
+      - "**"
     paths:
-      - '**/*.swift'
-      - '.github/workflows/*.yml'
+      - "**/*.swift"
+      - ".github/workflows/*.yml"
   pull_request:
     paths:
-      - '**/*.swift'
-      - '.github/workflows/*.yml'
+      - "**/*.swift"
+      - ".github/workflows/*.yml"
 jobs:
   swift_lint:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Run swiftlint
-        run: swiftlint lint --reporter github-actions-logging
+      - name: Run SwiftLint
+        run: |
+          docker run --rm -v `pwd`:`pwd` -w `pwd` \
+            ghcr.io/realm/swiftlint:0.58.2 \
+            swiftlint lint --strict --config .swiftlint.yml --reporter github-actions-logging
 
   test:
     runs-on: macos-latest
     name: Xcode ${{ matrix.xcode }}
     strategy:
       matrix:
-        xcode: ["14.2"]
+        xcode: ["16.2"]
     steps:
       - uses: actions/checkout@v4
       - name: Set correct Xcode version
@@ -49,4 +52,3 @@ jobs:
         run: set -o pipefail && swift test 2>&1 | xcpretty
         env:
           SWIFTPM_ENABLE_PLUGINS: 1
-        

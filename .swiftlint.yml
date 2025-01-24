@@ -3,7 +3,6 @@ analyzer_rules:
   - unused_import
 
 opt_in_rules:
-  - anyobject_protocol
   - array_init
   - attributes
   - closure_end_indentation
@@ -70,38 +69,38 @@ opt_in_rules:
   - yoda_condition
 
 excluded:
-- build
-- .build
-- DerivedData
-- Release
+  - build
+  - .build
+  - DerivedData
+  - Release
 
 line_length:
-    warning: 150
-    error: 200
-    ignores_function_declarations: true
-    ignores_comments: true
-    ignores_urls: true
+  warning: 150
+  error: 200
+  ignores_function_declarations: true
+  ignores_comments: true
+  ignores_urls: true
 
 function_body_length:
-    warning: 300
-    error: 500
+  warning: 300
+  error: 500
 
 function_parameter_count:
-    warning: 6
-    error: 8
+  warning: 6
+  error: 8
 
 type_body_length:
-    warning: 300
-    error: 500
+  warning: 300
+  error: 500
 
 file_length:
-    warning: 1000
-    error: 1500
-    ignore_comment_only_lines: true
+  warning: 1000
+  error: 1500
+  ignore_comment_only_lines: true
 
 cyclomatic_complexity:
-    warning: 15
-    error: 25
+  warning: 15
+  error: 25
 
 identifier_name:
   min_length:
