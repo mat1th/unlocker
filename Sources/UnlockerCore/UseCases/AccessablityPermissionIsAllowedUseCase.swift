@@ -2,6 +2,7 @@ import Foundation
 import Quartz
 import ServiceManagement
 
+// swiftlint:disable:next type_name
 public protocol AccessablityPermissionIsAllowedUseCaseProtocol {
     func execute() -> Bool
 }
