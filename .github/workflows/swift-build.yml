@@ -22,7 +22,7 @@ jobs:
       - name: Run SwiftLint
         run: |
           docker run --rm -v `pwd`:`pwd` -w `pwd` \
-            ghcr.io/realm/swiftlint:0.57.0 \
+            ghcr.io/realm/swiftlint:0.58.2 \
             swiftlint lint --strict --config .swiftlint.yml --reporter github-actions-logging
 
   test:

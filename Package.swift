@@ -5,14 +5,14 @@ import PackageDescription
 let package = Package(
     name: "Unlocker",
     platforms: [
-        .macOS(.v10_13),
+        .macOS(.v10_13)
     ],
     products: [
         .executable(name: "unlocker", targets: ["unlocker"]),
-        .library(name: "UnlockerCore", targets: ["UnlockerCore"]),
+        .library(name: "UnlockerCore", targets: ["UnlockerCore"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.5.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.5.0")
     ],
     targets: [
         .executableTarget(
@@ -20,11 +20,11 @@ let package = Package(
             dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 "UnlockerCore",
-                "SwiftLintPlugin",
+                "SwiftLintPlugin"
             ],
             swiftSettings: [
                 // Enable to validate if project is compatible with swift 6.0 Concurrency
-                .enableExperimentalFeature("StrictConcurrency"),
+                .enableExperimentalFeature("StrictConcurrency")
             ]
         ),
         .target(
@@ -34,7 +34,7 @@ let package = Package(
         .testTarget(
             name: "UnlockerCoreTests",
             dependencies: [
-                "UnlockerCore",
+                "UnlockerCore"
             ]
         ),
         .binaryTarget(
@@ -46,6 +46,6 @@ let package = Package(
             name: "SwiftLintPlugin",
             capability: .buildTool(),
             dependencies: ["SwiftLintBinary"]
-        ),
+        )
     ]
 )
