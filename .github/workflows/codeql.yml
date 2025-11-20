@@ -2,11 +2,11 @@ name: "CodeQL code Scanning"
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
   schedule:
-    - cron: '43 7 * * 4'
+    - cron: "43 7 * * 4"
 
 jobs:
   analyze:
@@ -21,20 +21,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'swift' ]
+        language: ["swift"]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v5
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v4
-      with:
-        languages: ${{ matrix.language }}
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@c3d42c5d08633d8b33635fbd94b000a0e2585b3c
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v4
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@c3d42c5d08633d8b33635fbd94b000a0e2585b3c
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v4
-      with:
-        category: "/language:${{matrix.language}}"
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@c3d42c5d08633d8b33635fbd94b000a0e2585b3c
+        with:
+          category: "/language:${{matrix.language}}"
